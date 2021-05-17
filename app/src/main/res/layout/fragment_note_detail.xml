@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.detail.NoteDetailFragment"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/txtNoteDetailHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Durum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <RadioGroup
+        android:id="@+id/radioGroupNoteDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/txtNoteDetailHeader">
+
+        <RadioButton
+            android:enabled="false"
+            android:id="@+id/radioNoteDetailToDo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YAPILACAK"></RadioButton>
+
+        <RadioButton
+            android:enabled="false"
+            android:id="@+id/radioNoteDetailBeingDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YAPILIYOR"></RadioButton>
+
+        <RadioButton
+            android:enabled="false"
+            android:id="@+id/radioNoteDetailDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YAPILDI"></RadioButton>
+    </RadioGroup>
+    <ImageButton
+        android:id="@+id/btnNoteDetailDelete"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete"/>
+    <ImageButton
+
+        android:id="@+id/btnNoteDetailEdit"
+        app:layout_constraintRight_toLeftOf="@id/btnNoteDetailDelete"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_edit"/>
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/btnNoteDetailDone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_complete"/>
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/btnNoteDetailCancel"
+        app:layout_constraintRight_toLeftOf="@id/btnNoteDetailDelete"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_cancel"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupNoteDetail"
+        android:id="@+id/textArea">
+
+        <TextView
+            android:id="@+id/txtNoteDetailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Başlık"></TextView>
+
+        <TextView
+            android:id="@+id/txtNoteDetailDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNoteDetailTitle"
+            tools:text="İçerik">
+
+        </TextView>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            android:id="@+id/txtInputLayoutNoteDetailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="Başlık">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEdittextNoteDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:id="@+id/txtInputLayoutNoteDetailDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtInputLayoutNoteDetailTitle"
+            android:hint="içerik">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:gravity="left"
+                android:id="@+id/txtInputEdittextNoteDetailDescription"
+                android:maxLines="10"
+                android:minLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarNoteDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        ></ProgressBar>
+    <ImageButton
+        android:elevation="10dp"
+        android:id="@+id/btnAddPhoto"
+        android:src="@drawable/ic_add_photo"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textArea">
+
+    </ImageButton>
+    <ImageButton
+        android:elevation="10dp"
+        android:id="@+id/btnRemovePhoto"
+        android:src="@drawable/ic_remove_photo"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textArea">
+
+    </ImageButton>
+    <ImageView
+        android:id="@+id/imgNoteDetail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textArea"></ImageView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

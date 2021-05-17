@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tolerans.notetoself.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tolerans.notetoself.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tolerans.notetoself.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.tolerans.notetoself.ui.addnote.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.tolerans.notetoself.ui.detail.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" >
+        <argument
+            android:name="noteID"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_noteDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
